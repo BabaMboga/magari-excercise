@@ -28,12 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   
     const newCarForm = document.querySelector('#new-car-form');
+  
     newCarForm.addEventListener('submit', (event) => {
       event.preventDefault();
+  
       const make = document.querySelector('#make').value;
       const model = document.querySelector('#model').value;
       const year = document.querySelector('#year').value;
       const color = document.querySelector('#color').value;
+  
       const newCar = { make, model, year, color };
   
       fetch('http://localhost:3000/cars', {
