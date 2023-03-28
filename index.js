@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 carDetails.innerHTML = `
                   <img src="${carDetails.carimage}">
                   <h2>${carDetails.carmodel}</h2>
-                  <p>'The owner number is'${carDetails.ownernumber} 'while the car number is' ${carDetails.carnumber}</p>
+                  <p>The owner number is ${carDetails.ownernumber} while the car number is ${carDetails.carnumber}</p>
                   <button id="Editbtn">Update</button>
                   <button id="Delbtn">Check Out</button>
                 `;
