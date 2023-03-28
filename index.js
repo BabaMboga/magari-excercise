@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
           li.addEventListener('click', () => {
             fetch(`http://localhost:3000/cars/${car.id}`)
               .then(response => response.json())
-              .then(carDetails => {
+              .then(carsDetails => {
                 carDetails.innerHTML = `
                   <img src="${carDetails.carimage}">
                   <h2>${carDetails.carmodel}</h2>
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <button id="Editbtn">Update</button>
                   <button id="Delbtn">Check Out</button>
                 `;
-                carDetails.style.display = 'block';
+                carsDetails.style.display = 'block';
               });
           });
           carList.appendChild(li);
