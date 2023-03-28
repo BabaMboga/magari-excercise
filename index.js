@@ -24,8 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
               });
           });
           carList.appendChild(li);
+        
         });
+    
       });
+
+
+
   
     const newCarForm = document.querySelector('#new-car-form');
   
