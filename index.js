@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const carList = document.querySelector("#car-list");
   const carDetails = document.querySelector("#car-details");
-  // const addCarButton = document.querySelector('#addCarbtn');
+  const addCarButton = document.querySelector('#addCarbtn');
+  const formContainer = document.getElementById('form-container');
+
+  addCarButton.addEventListener('click', () => {
+        formContainer.style.display = "block";
+});
 
   // adds a list of owner names who are in the parking lot
   fetch("http://localhost:3000/cars")
@@ -11,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const li = document.createElement("li");
         li.textContent = car.ownername;
         li.addEventListener("click", () => {
-          fetch(`http://localhost:3000/cars/${cars.id}`)
+          fetch(`http://localhost:3000/cars/${car.id}`)
             .then((response) => response.json())
             .then((carsDetails) => {
               carDetails.innerHTML = `
