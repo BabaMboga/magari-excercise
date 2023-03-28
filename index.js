@@ -45,6 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const ownernumber = document.querySelector("#ownernumber").value;
     const carimage = document.querySelector("#carimage").value;
     const carnumber = document.querySelector("#carnumber").value;
+    const addCarBtn = document.getElementById("addCarbtn");
+const formContainer = document.getElementById("form-container");
+
+addCarBtn.addEventListener("click", () => {
+  formContainer.style.display = "block";
+});
+
 
     const newCar = { carmodel, ownername, ownernumber, carimage, carnumber };
 
