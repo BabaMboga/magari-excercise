@@ -9,24 +9,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
   // adds a list of owner names who are in the parking lot
-  fetch("http://localhost:3000/cars")
+  fetch("http://localhost:3001/cars")
     .then((response) => response.json())
     .then((cars) => {
       cars.forEach((car) => {
         const li = document.createElement("li");
         li.textContent = car.ownername;
-        li.addEventListener("click", () => {
-          fetch(`http://localhost:3000/cars/${car.id}`)
+        li.addEventListener("click", (e) => {
+          e.preventDefault();
+       let carID = car.id;
+       fetch(`http://localhost:3001/cars/${carID}`)
             .then((response) => response.json())
-            .then((carsDetails) => {
+            .then((carData) => {
+              console.log (carData)
               carDetails.innerHTML = `
-                  <img src="${carDetails.carimage}">
-                  <h2>${carDetails.carmodel}</h2>
-                  <p>The owner number is ${carDetails.ownernumber} while the car number is ${carDetails.carnumber}</p>
+                  <img src="${carData.carimage}">
+                  <h2>${carData.carmodel}</h2>
+                  <p>The owner number is ${carData.ownernumber} while the car number is ${carDetails.carnumber}</p>
                   <button id="Editbtn">Update</button>
                   <button id="Delbtn">Check Out</button>
                 `;
-              carsDetails.style.display = "block";
+            //  carsDetails.style.display = "block";
             });
         });
         carList.appendChild(li);
@@ -48,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const newCar = { carmodel, ownername, ownernumber, carimage, carnumber };
 
-    fetch("http://localhost:3000/cars", {
+    fetch("http://localhost:3001/cars", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
