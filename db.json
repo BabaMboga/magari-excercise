@@ -39,6 +39,14 @@
       "carimage": "updated car image",
       "carnumber": "updated car number",
       "id": 5
+    },
+    {
+      "carmodel": "",
+      "ownername": "",
+      "ownernumber": "",
+      "carimage": "",
+      "carnumber": "",
+      "id": 6
     }
   ]
 }
